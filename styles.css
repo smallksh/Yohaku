@@ -1,0 +1,532 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* 深色模式变量 */
+body.dark {
+  background: #1e1e1e;
+  color: #e8e8e8;
+}
+
+.container {
+  padding: 20px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 头部 */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: #2c3e50;
+}
+
+body.dark .header h1 {
+  color: #d4d4d4;
+}
+
+.subtitle {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #95a5a6;
+  margin-top: 4px;
+}
+
+body.dark .subtitle {
+  color: #6c6c6c;
+}
+
+/* 描述 */
+.description {
+  font-size: 13px;
+  color: #7f8c8d;
+  text-align: center;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+body.dark .description {
+  color: #9e9e9e;
+}
+
+/* 按钮基础样式 */
+.btn {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #ecf0f1;
+  color: #2c3e50;
+}
+
+body.dark .btn-primary {
+  background: #3a3a3a;
+  color: #e8e8e8;
+}
+
+.btn-primary:hover {
+  background: #dfe4e5;
+}
+
+body.dark .btn-primary:hover {
+  background: #4a4a4a;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.btn-delete {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #c0392b;
+}
+
+.btn-keep {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-keep:hover {
+  background: #219a52;
+}
+
+.btn-export {
+  background: #3498db;
+  color: white;
+  margin-top: 0;
+}
+
+.btn-export:hover {
+  background: #2980b9;
+}
+
+/* 视图切换 */
+.view {
+  flex: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 会话状态 */
+.session-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #27ae60;
+}
+
+body.dark .session-status {
+  color: #2ecc71;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #27ae60;
+  animation: pulse 1.5s infinite;
+}
+
+body.dark .status-dot {
+  background: #2ecc71;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* 结果视图 */
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+body.dark .result-header {
+  border-bottom-color: #3d3d3d;
+}
+
+.stats {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-bottom: 12px;
+}
+
+body.dark .stats {
+  color: #9e9e9e;
+}
+
+.record-list {
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid #ecf0f1;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+body.dark .record-list {
+  border-color: #3d3d3d;
+}
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ========== 选择功能样式 ========== */
+
+/* 选择工具栏 */
+.selection-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4px 12px 4px;
+  border-bottom: 1px solid #ecf0f1;
+  margin-bottom: 12px;
+}
+
+body.dark .selection-toolbar {
+  border-bottom-color: #3d3d3d;
+}
+
+.select-all-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #34495e;
+}
+
+body.dark .select-all-label {
+  color: #d4d4d4;
+}
+
+.select-all-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #3498db;
+}
+
+.selected-count {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+body.dark .selected-count {
+  color: #9e9e9e;
+}
+
+/* 记录项 */
+.record-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+}
+
+body.dark .record-item {
+  border-bottom-color: #2d2d2d;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-checkbox {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #3498db;
+}
+
+.record-favicon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.record-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.record-more {
+  padding: 10px 12px;
+  font-size: 11px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+body.dark .record-more {
+  background: #2a2a2a;
+  color: #8e8e8e;
+}
+
+/* 记录项悬停效果 */
+.record-item:hover {
+  background: #f8f9fa;
+}
+
+body.dark .record-item:hover {
+  background: #2a2a2a;
+}
+
+/* ========== 导出下拉菜单 ========== */
+
+.export-wrapper {
+  position: relative;
+  margin-top: 0;
+}
+
+.export-dropdown {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 10;
+  
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+body.dark .export-dropdown {
+  background: #2d2d2d;
+  border-color: #555;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.export-dropdown.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: left;
+  color: #2c3e50;
+  transition: background 0.15s;
+}
+
+body.dark .dropdown-item {
+  color: #e8e8e8;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+body.dark .dropdown-item:hover {
+  background: #3a3a3a;
+}
+
+.dropdown-item:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+body.dark .dropdown-item:not(:last-child) {
+  border-bottom-color: #3d3d3d;
+}
+
+/* ========== 设置视图 ========== */
+
+.settings-header {
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 0;
+  color: #3498db;
+}
+
+body.dark .back-btn {
+  color: #5dade2;
+}
+
+.settings-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7f8c8d;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+body.dark .settings-title {
+  color: #9e9e9e;
+}
+
+.settings-option {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+body.dark .settings-option {
+  background: #2a2a2a;
+}
+
+.option-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.theme-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-btn {
+  flex: 1;
+  padding: 8px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+body.dark .theme-btn {
+  background: #3a3a3a;
+  border-color: #555;
+  color: #e8e8e8;
+}
+
+.theme-btn.active {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+body.dark .theme-btn.active {
+  background: #3498db;
+  border-color: #3498db;
+}
+
+/* 版本信息 */
+.version-info {
+  text-align: center;
+  font-size: 11px;
+  color: #bdc3c7;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #ecf0f1;
+}
+
+body.dark .version-info {
+  color: #6c6c6c;
+  border-top-color: #3d3d3d;
+}
+
+/* 底部 */
+.footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #ecf0f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.dark .footer {
+  border-top-color: #3d3d3d;
+}
+
+.footer-btn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  color: #95a5a6;
+}
+
+body.dark .footer-btn {
+  color: #8e8e8e;
+}
+
+.footer-btn:hover {
+  text-decoration: underline;
+}
+
+.footer-hint {
+  font-size: 10px;
+  color: #bdc3c7;
+}
+
+body.dark .footer-hint {
+  color: #6c6c6c;
+}

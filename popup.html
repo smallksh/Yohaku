@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>余白 Yohaku</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 头部 -->
+    <div class="header">
+      <h1>余白</h1>
+      <div class="subtitle">YOHAKU</div>
+    </div>
+
+    <!-- 主视图 -->
+    <div id="mainView" class="view">
+      <p class="description">浏览之后，不必留下所有痕迹。</p>
+      
+      <div id="idleView">
+        <button id="startBtn" class="btn btn-primary">开始留白</button>
+      </div>
+
+      <div id="activeView" class="hidden">
+        <div class="session-status">
+          <span class="status-dot active"></span>
+          <span>留白进行中</span>
+        </div>
+        <button id="endBtn" class="btn btn-danger">结束留白</button>
+      </div>
+    </div>
+
+    <!-- 结果视图 -->
+    <div id="resultView" class="view hidden">
+      <div class="result-header">
+        <span class="result-icon">📋</span>
+        <span>本次留白记录</span>
+      </div>
+      
+      <!-- 选择工具栏 -->
+      <div class="selection-toolbar">
+        <label class="select-all-label">
+          <input type="checkbox" id="selectAllCheckbox">
+          全选
+        </label>
+        <span class="selected-count" id="selectedCount">已选 0 条</span>
+      </div>
+      
+      <div class="stats" id="stats">共 <span id="recordCount">0</span> 条记录</div>
+      <div class="record-list" id="recordList"></div>
+      
+      <div class="result-actions">
+        <button id="deleteSelectedBtn" class="btn btn-delete">🗑️ 删除选中</button>
+        <button id="keepSelectedBtn" class="btn btn-keep">✓ 保留选中</button>
+        
+        <!-- 导出区域 -->
+        <div class="export-wrapper">
+          <button id="exportBtn" class="btn btn-export">📎 导出选中</button>
+          <div class="export-dropdown" id="exportDropdown">
+            <button data-format="json" class="dropdown-item">JSON</button>
+            <button data-format="csv" class="dropdown-item">CSV</button>
+            <button data-format="md" class="dropdown-item">Markdown</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 设置视图 -->
+    <div id="settingsView" class="view hidden">
+      <div class="settings-header">
+        <button id="backBtn" class="back-btn">← 返回</button>
+      </div>
+      <div class="settings-title">外观</div>
+      <div class="settings-option">
+        <span class="option-label">深色模式</span>
+        <div class="theme-buttons">
+          <button data-theme="light" class="theme-btn">☀️ 浅色</button>
+          <button data-theme="dark" class="theme-btn">🌙 深色</button>
+          <button data-theme="system" class="theme-btn">💻 跟随系统</button>
+        </div>
+      </div>
+      
+      <!-- 版本信息 -->
+      <div class="version-info">
+        版本 <span id="versionNumber"></span>
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+      <button id="settingsBtn" class="footer-btn">设置</button>
+      <span class="footer-hint">余白只在会话结束时删除记录</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
