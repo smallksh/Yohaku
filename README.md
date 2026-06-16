@@ -16,15 +16,15 @@
 
 ### 主界面
 
-![主界面](./images/screenshot-main.png)
+![主界面](./docs/images/screenshot-main.png)
 
 ### 记录管理
 
-![记录管理](./images/screenshot-records.png)
+![记录管理](./docs/images/screenshot-records.png)
 
 ### 导出选项
 
-![导出选项](./images/screenshot-export.png)
+![导出选项](./docs/images/screenshot-export.png)
 
 ## 📥 安装
 
