@@ -12,6 +12,20 @@
 - **深色模式**：浅色 / 深色 / 跟随系统
 - **状态持久化**：浏览器重启后自动恢复会话状态
 
+## 📸 截图
+
+### 主界面
+
+![主界面](./images/screenshot-main.png)
+
+### 记录管理
+
+![记录管理](./images/screenshot-records.png)
+
+### 导出选项
+
+![导出选项](./images/screenshot-export.png)
+
 ## 📥 安装
 
 ### 从源码安装（开发模式）
