@@ -103,8 +103,8 @@ function showResultView(session) {
   const listContainer = document.getElementById('recordList');
   listContainer.innerHTML = '';
   
-  const showCount = count;
-  for (let i = 0; i < showCount; i++) {
+  // 显示所有记录
+  for (let i = 0; i < count; i++) {
     const item = urls[i];
     const div = document.createElement('div');
     div.className = 'record-item';
@@ -131,13 +131,6 @@ function showResultView(session) {
     div.appendChild(favicon);
     div.appendChild(titleSpan);
     listContainer.appendChild(div);
-  }
-  
-  if (count > 10) {
-    const moreDiv = document.createElement('div');
-    moreDiv.className = 'record-more';
-    moreDiv.textContent = `... 还有 ${count - 10} 条记录`;
-    listContainer.appendChild(moreDiv);
   }
   
   updateSelectedCount();
