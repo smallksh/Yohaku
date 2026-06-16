@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "余白 Yohaku",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "浏览之后，不必留下所有痕迹。",
   "permissions": ["history", "storage", "tabs"],
   "background": {

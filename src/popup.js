@@ -103,7 +103,7 @@ function showResultView(session) {
   const listContainer = document.getElementById('recordList');
   listContainer.innerHTML = '';
   
-  const showCount = Math.min(count, 10);
+  const showCount = count;
   for (let i = 0; i < showCount; i++) {
     const item = urls[i];
     const div = document.createElement('div');
