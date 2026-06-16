@@ -28,8 +28,17 @@
 
 ## 📥 安装
 
-### 从源码安装（开发模式）
+### 方法一：从 GitHub Releases 安装（推荐）
+
+1. 访问 [Releases 页面](https://github.com/smallksh/Yohaku/releases)
+2. 下载最新版本的 `yohaku.crx` 文件
+3. 打开 Chrome，访问 `chrome://extensions/`
+4. 开启右上角「开发者模式」
+5. 将下载的 `.crx` 文件拖入页面
+6. 点击「添加扩展程序」确认安装
+
+### 方法二：从源码安装（开发模式）
 
 1. 克隆仓库
    ```bash
-   git clone https://github.com/smallksh/yohaku.git
+   git clone https://github.com/smallksh/Yohaku.git
