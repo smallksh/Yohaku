@@ -2,5 +2,5 @@
 *.crx
 *.zip
 dist/
-.pdf
-.gitignore
+*.pdf
+
